@@ -1,0 +1,13 @@
+﻿using System;
+using System.Collections.Generic;
+
+namespace AdventureWorks.Models;
+
+public partial class VProductAndDescription
+{
+    public int ProductId { get; set; }
+
+    public string CultureId { get; set; } = null!;
+
+    public string Description { get; set; } = null!;
+}

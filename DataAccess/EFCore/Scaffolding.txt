@@ -1,0 +1,33 @@
+﻿
+Install the NuGet package for Microsoft.EntityFrameworkCore.Tools
+Install the NuGet package for Microsoft.EntityFrameworkCore.Design in the project you are scaffolding to.
+Install the NuGet package for the database provider that targets the database schema you want to scaffold from.
+
+Scaffold-DbContext
+
+-Connection			<String>	The connection string to the database. For ASP.NET Core 2.x projects, the value can be name=<name of connection string>. In that case the name comes from the configuration sources that are set up for the project. This is a positional parameter and is required.
+-Provider			<String>	The provider to use. Typically this is the name of the NuGet package, for example: Microsoft.EntityFrameworkCore.SqlServer. This is a positional parameter and is required.
+-OutputDir			<String>	The directory to put entity class files in. Paths are relative to the project directory.
+-ContextDir			<String>	The directory to put the DbContext file in. Paths are relative to the project directory.
+-Namespace			<String>	The namespace to use for all generated classes. Defaults to generated from the root namespace and the output directory.
+-ContextNamespace	<String>	The namespace to use for the generated DbContext class. Note: overrides -Namespace.
+-Context			<String>	The name of the DbContext class to generate.
+-Schemas			<String[]>	The schemas of tables and views to generate entity types for. If this parameter is omitted, all schemas are included. If this option is used, then all tables and views in the schemas will be included in the model, even if they are not explicitly included using -Table.
+-Tables				<String[]>	The tables and views to generate entity types for. Tables or views in a specific schema can be included using the 'schema.table' or 'schema.view' format. If this parameter is omitted, all tables and views are included.
+-DataAnnotations				Use attributes to configure the model (where possible). If this parameter is omitted, only the fluent API is used.
+-UseDatabaseNames				Use table, view, sequence, and column names exactly as they appear in the database. If this parameter is omitted, database names are changed to more closely conform to C# name style conventions.
+-Force							Overwrite existing files.
+-NoOnConfiguring				Don't generate DbContext.OnConfiguring.
+-NoPluralize					Don't use the pluralizer.
+
+-DataAnnotations
+[Required]
+[StringLength(160)]
+public string Title { get; set; }
+
+
+A connection was successfully established with the server, but then an error occurred during the login process. (provider: Named Pipes Provider, error: 0 - No hay ningún proceso en el otro extremo de la canalización.)
+TrustServerCertificate=True
+
+
+Scaffold-DbContext 'Data Source=localhost;Initial Catalog=AdventureWorks;User Id=Nacho; Password=iRmtTypYhz13qMH; TrustServerCertificate=True' -OutputDir AdventureWorks/Models -Namespace AdventureWorks.Models  -Context AWDBContext -ContextNamespace AdventureWorks.DBContext -ContextDir AdventureWorks/DBContexts -Force Microsoft.EntityFrameworkCore.SqlServer
