@@ -5,6 +5,8 @@ VisualStudioVersion = 17.11.35303.130
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ParallelConsoleApp", "Advance\ParallelConsoleApp\ParallelConsoleApp.csproj", "{5990AA8A-F45E-4443-894B-483245C88B4A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleAppAsync", "ConsoleAppAsync\ConsoleAppAsync.csproj", "{F34C419F-0F18-43CD-B8E3-16EB4ECC1F2F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{5990AA8A-F45E-4443-894B-483245C88B4A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5990AA8A-F45E-4443-894B-483245C88B4A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5990AA8A-F45E-4443-894B-483245C88B4A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F34C419F-0F18-43CD-B8E3-16EB4ECC1F2F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F34C419F-0F18-43CD-B8E3-16EB4ECC1F2F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F34C419F-0F18-43CD-B8E3-16EB4ECC1F2F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F34C419F-0F18-43CD-B8E3-16EB4ECC1F2F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
