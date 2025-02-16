@@ -8,13 +8,15 @@ namespace ParallelConsoleApp
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello, World!");
+            Console.WriteLine("Start Parallel Testing!");
 
-            var data = CreateDummyData(1000000);
-            test1(data);
-            test2(data);         
+            var data = CreateDummyData(100);
+            
+            NormalFor(data);
+            ParallelForWithOptions(data, 2);
+            ParallelFor(data);
 
-            Console.WriteLine("Bye, World!");
+            Console.WriteLine("Bye, Parallel Testing!");
         }
 
         static void LongProcess(DummyData dummyData)
@@ -40,13 +42,14 @@ namespace ParallelConsoleApp
                 });
             }
             stopwatch.Stop();
-            Console.WriteLine("Elapsed time: " + stopwatch.Elapsed);
+            Console.WriteLine("Elapsed time to create data: " + stopwatch.Elapsed);
+            Console.WriteLine();
 
             return result;
         }
 
 
-        static void test1(List<DummyData> data)
+        static void NormalFor(List<DummyData> data)
         {
             Stopwatch stopwatch = new Stopwatch();
             stopwatch.Start();
@@ -55,10 +58,11 @@ namespace ParallelConsoleApp
                 LongProcess(item);
             }
             stopwatch.Stop();
-            Console.WriteLine("Elapsed time: " + stopwatch.Elapsed);
+            Console.WriteLine("Elapsed time Normal For: " + stopwatch.Elapsed);
+            Console.WriteLine();
         }
 
-        static void test2(List<DummyData> data)
+        static void ParallelFor(List<DummyData> data)
         {
             Stopwatch stopwatch = new Stopwatch();
             stopwatch.Start();
@@ -68,7 +72,25 @@ namespace ParallelConsoleApp
             });
 
             stopwatch.Stop();
-            Console.WriteLine("Elapsed time: " + stopwatch.Elapsed);
+            Console.WriteLine("Elapsed time Parallel For (self-managed): " + stopwatch.Elapsed);
+            Console.WriteLine();
         }
+
+        static void ParallelForWithOptions(List<DummyData> data, int degreeOfParallelism)
+        {
+            Stopwatch stopwatch = new Stopwatch();
+            stopwatch.Start();
+
+            var parallelOptions = new ParallelOptions() { MaxDegreeOfParallelism = degreeOfParallelism };
+
+            Parallel.ForEach(data, parallelOptions, item => {
+                LongProcess(item);
+            });
+
+            stopwatch.Stop();
+            Console.WriteLine($"Elapsed time Parallel For (MaxDegreeOfParallelism: {degreeOfParallelism}): " + stopwatch.Elapsed);
+            Console.WriteLine();
+        }
+
     }
 }
