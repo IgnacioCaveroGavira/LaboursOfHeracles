@@ -10,11 +10,11 @@ namespace ParallelConsoleApp
         {
             Console.WriteLine("Start Parallel Testing!");
 
-            var data = CreateDummyData(100);
+            var data = CreateDummyData(1000000);
             
-            NormalFor(data);
-            ParallelForWithOptions(data, 2);
-            ParallelFor(data);
+            //NormalFor(data);
+            //ParallelForWithOptions(data, 2);
+            //ParallelFor(data);
 
             Console.WriteLine("Bye, Parallel Testing!");
         }
