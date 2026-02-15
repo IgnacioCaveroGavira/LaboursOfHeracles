@@ -11,9 +11,12 @@ namespace SerilogConsoleAppGenericHost
             _logger = logger;
         }
 
-        public async Task ExecuteAsync(CancellationToken stoppingToken = default)
+        public void Execute(CancellationToken stoppingToken = default)
         {
-            _logger.Information("ClassWithSerilog log");
+            _logger.Information(TextForLogging.Information);
+            _logger.Debug(TextForLogging.Debug);
+            _logger.Warning(TextForLogging.Warning);
+            _logger.Error(TextForLogging.Error);
         }
     }
 }
