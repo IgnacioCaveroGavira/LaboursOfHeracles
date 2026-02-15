@@ -26,11 +26,11 @@ namespace SerilogConsoleAppGenericHost
             var hostBuilder = Host.CreateDefaultBuilder()
                 .ConfigureServices((hostContext, services) =>
                 {
-                    services.AddSingleton(Log.Logger);
+                    services.AddSingleton(Log.Logger); // register the Serilog logger
                     services.AddTransient<ClassWithSerilog>();
                     services.AddTransient<ClassWithMicrosoftLogger>();
                 })
-                .UseSerilog()
+                .UseSerilog() //Serilog
                 ;
 
             var host = hostBuilder.Build();
